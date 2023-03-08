@@ -80,6 +80,39 @@ public class FilmsManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void DisplaysAllMoviesInReverseOrder() {
+        FilmsManager manager = new FilmsManager();
+
+        manager.addFilm("Film I");
+        manager.addFilm("Film II");
+        manager.addFilm("Film III");
+        manager.addFilm("Film IV");
+        manager.addFilm("Film V");
+        manager.addFilm("Film VI");
+        manager.addFilm("Film VII");
+        manager.addFilm("Film VIII");
+        manager.addFilm("Film IX");
+
+        String[] expected = {"Film IX", "Film VIII", "Film VII", "Film VI", "Film V", "Film IV", "Film III", "Film II", "Film I"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void DisplaysSingleMoviesInReverseOrder() {
+        FilmsManager manager = new FilmsManager();
+
+        manager.addFilm("Film I");
+
+        String[] expected = {"Film I"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
     @Test
     public void DisplayingFiveMoviesInReverseOrder() {
         FilmsManager manager = new FilmsManager();
@@ -137,5 +170,41 @@ public class FilmsManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void WhenTheLimitOfMoviesIsTwelve() {
+        FilmsManager manager = new FilmsManager(12);
+
+        manager.addFilm("Film I");
+        manager.addFilm("Film II");
+        manager.addFilm("Film III");
+        manager.addFilm("Film IV");
+        manager.addFilm("Film V");
+        manager.addFilm("Film VI");
+        manager.addFilm("Film VII");
+        manager.addFilm("Film VIII");
+        manager.addFilm("Film IX");
+        manager.addFilm("Film X");
+        manager.addFilm("Film XI");
+
+
+        String[] expected = {"Film XI", "Film X", "Film IX", "Film VIII", "Film VII", "Film VI", "Film V", "Film IV", "Film III", "Film II", "Film I"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void WhenTheLimitOfFilmsIsOne() {
+        FilmsManager manager = new FilmsManager(1);
+
+        manager.addFilm("Film I");
+
+
+        String[] expected = {"Film I"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 
 }
