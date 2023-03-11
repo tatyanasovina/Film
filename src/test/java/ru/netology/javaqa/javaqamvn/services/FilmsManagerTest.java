@@ -114,6 +114,17 @@ public class FilmsManagerTest {
     }
 
     @Test
+    public void UnlimitedWithZeroValue() {
+        FilmsManager manager = new FilmsManager();
+
+
+        String[] expected = { };
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void DisplayingFiveMoviesInReverseOrder() {
         FilmsManager manager = new FilmsManager();
 
@@ -201,6 +212,16 @@ public class FilmsManagerTest {
 
 
         String[] expected = {"Film I"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void WhenTheLimitOfFilmsIsZero() {
+        FilmsManager manager = new FilmsManager(0);
+
+
+        String[] expected = { };
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
