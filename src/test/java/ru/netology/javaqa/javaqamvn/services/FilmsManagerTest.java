@@ -259,6 +259,29 @@ public class FilmsManagerTest {
 
         Assertions.assertArrayEquals(expected, actual);
     }
+    @Test
+    public void WhenThereIsMoreThanALimitOfTenWithoutALimit() {
+        FilmsManager manager = new FilmsManager();
+
+        manager.addFilm("Film XII");
+        manager.addFilm("Film XI");
+        manager.addFilm("Film X");
+        manager.addFilm("Film IX");
+        manager.addFilm("Film VIII");
+        manager.addFilm("Film VII");
+        manager.addFilm("Film VI");
+        manager.addFilm("Film V");
+        manager.addFilm("Film IV");
+        manager.addFilm("Film III");
+        manager.addFilm("Film II");
+        manager.addFilm("Film I");
+
+
+        String[] expected = {"Film I", "Film II", "Film III", "Film IV", "Film V", "Film VI", "Film VII", "Film VIII", "Film IX", "Film X"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
     @Test
     public void WhenTheLimitOfFilmsIsEleven() {
@@ -348,5 +371,28 @@ public class FilmsManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void WhenThereIsMoreThanALimitWithALimitOfEleven() {
+        FilmsManager manager = new FilmsManager(11);
+
+        manager.addFilm("Film XII");
+        manager.addFilm("Film XI");
+        manager.addFilm("Film X");
+        manager.addFilm("Film IX");
+        manager.addFilm("Film VIII");
+        manager.addFilm("Film VII");
+        manager.addFilm("Film VI");
+        manager.addFilm("Film V");
+        manager.addFilm("Film IV");
+        manager.addFilm("Film III");
+        manager.addFilm("Film II");
+        manager.addFilm("Film I");
+
+
+        String[] expected = {"Film I", "Film II", "Film III", "Film IV", "Film V", "Film VI", "Film VII", "Film VIII", "Film IX", "Film X","Film XI"};
+        String[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
 }
