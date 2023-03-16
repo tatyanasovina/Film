@@ -263,21 +263,21 @@ public class FilmsManagerTest {
     public void WhenThereIsMoreThanALimitOfTenWithoutALimit() {
         FilmsManager manager = new FilmsManager();
 
-        manager.addFilm("Film XII");
-        manager.addFilm("Film XI");
-        manager.addFilm("Film X");
-        manager.addFilm("Film IX");
-        manager.addFilm("Film VIII");
-        manager.addFilm("Film VII");
-        manager.addFilm("Film VI");
-        manager.addFilm("Film V");
-        manager.addFilm("Film IV");
-        manager.addFilm("Film III");
-        manager.addFilm("Film II");
         manager.addFilm("Film I");
+        manager.addFilm("Film II");
+        manager.addFilm("Film III");
+        manager.addFilm("Film IV");
+        manager.addFilm("Film V");
+        manager.addFilm("Film VI");
+        manager.addFilm("Film VII");
+        manager.addFilm("Film VIII");
+        manager.addFilm("Film IX");
+        manager.addFilm("Film X");
+        manager.addFilm("Film XI");
+        manager.addFilm("Film XII");
 
 
-        String[] expected = {"Film I", "Film II", "Film III", "Film IV", "Film V", "Film VI", "Film VII", "Film VIII", "Film IX", "Film X"};
+        String[] expected = {"Film XII","Film XI","Film X", "Film IX", "Film VIII", "Film VII", "Film VI", "Film V", "Film IV", "Film III"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
@@ -375,21 +375,21 @@ public class FilmsManagerTest {
     public void WhenThereIsMoreThanALimitWithALimitOfEleven() {
         FilmsManager manager = new FilmsManager(11);
 
-        manager.addFilm("Film XII");
-        manager.addFilm("Film XI");
-        manager.addFilm("Film X");
-        manager.addFilm("Film IX");
-        manager.addFilm("Film VIII");
-        manager.addFilm("Film VII");
-        manager.addFilm("Film VI");
-        manager.addFilm("Film V");
-        manager.addFilm("Film IV");
-        manager.addFilm("Film III");
-        manager.addFilm("Film II");
         manager.addFilm("Film I");
+        manager.addFilm("Film II");
+        manager.addFilm("Film III");
+        manager.addFilm("Film IV");
+        manager.addFilm("Film V");
+        manager.addFilm("Film VI");
+        manager.addFilm("Film VII");
+        manager.addFilm("Film VIII");
+        manager.addFilm("Film IX");
+        manager.addFilm("Film X");
+        manager.addFilm("Film XI");
+        manager.addFilm("Film XII");
 
 
-        String[] expected = {"Film I", "Film II", "Film III", "Film IV", "Film V", "Film VI", "Film VII", "Film VIII", "Film IX", "Film X","Film XI"};
+        String[] expected = {"Film XII","Film XI","Film X", "Film IX", "Film VIII", "Film VII", "Film VI", "Film V", "Film IV", "Film III","Film II"};
         String[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
